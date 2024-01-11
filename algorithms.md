@@ -22,7 +22,7 @@ vertices are visited. Suppose that InOrderTreeWalk takes time $c$ on an empty su
 bounded by $d$ to execute the part of itself which is not inside recursive calls. We prove by
 induction that, for a tree of size $n$, $T(n) \leq (c+d)n + c$. Well, this is clearly true for
 $n = 0$. Let us assume that our tree's left subtree has size $k$ and its right subtree has size
-$n - k - 1$; then $$ T(n) = T(k) + d + T(n - k - 1) = (c + d)n + c $$.
+$n - k - 1$; then $$ T(n) \leq T(k) + d + T(n - k - 1) \leq (c + d)n + c $$.
 
 ## $O(height)$ Operations: Search, Min, Max, Successor, Predecessor
 
@@ -79,7 +79,7 @@ $y$, which lies in $z$'s right subtree and has no left child. There are two case
 
 If $z$ has no children or only one child, then removal takes constant time. If $z$ has two children,
 then every operation in the removal procedure takes constant time except for finding $z$'s
-successor, so that removal takes $O(log(height(z)))$ time.
+successor, so that removal takes $O(\log(height(z)))$ time.
 
 ## Building A Binary Search Tree
 
@@ -96,7 +96,7 @@ $O(log n)$. More precisely: by constraining the node colors on any simple path f
 leaf, RBTs ensure that no such path is more than twice as long as any other, so that the tree is
 approximately balanced.
 
-**Note:** When discussing red-RBTs, we shall consider all actual nodes to be "internal", by the
+**Note:** When discussing RBTs, we shall consider all actual nodes to be "internal", by the
 convention that a node which has no left child (or right child or parent) has _NIL_ as its left
 child (or right child or parent).
 
@@ -144,6 +144,10 @@ for any BST, namely $O(height)$.
 
 For details, see
 [RBT-Insert-GeeksForGeeks](https://www.geeksforgeeks.org/insertion-in-red-black-tree/)
+
+#### Delete
+
+Deleting a node from an RBT is more complex than inserting a node. We won't treat it here.
 
 # Merge Sort
 

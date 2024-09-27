@@ -460,7 +460,7 @@ immediately gives the current theorem.
 **Definition:** A _topological sort_ of a _directed_ graph $G$ is a sorting of the vertices of $G$
 such that every edge goes left-to-right in the vertex sorting.
 
-**Theorem:** We can topologically sort a DSG by running DFS and sorting vertices in descending order
+**Theorem:** We can topologically sort a DAG by running DFS and sorting vertices in descending order
 of finishing time. **Proof:** Take any edge $(u,v)$; we must show that $v$ is finished before $u$.
 Consider the colour of $v$ at the moment when the edge $(u,v)$ is explored:
 

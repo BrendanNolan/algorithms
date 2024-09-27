@@ -13,7 +13,7 @@ keys in $n$'s left subtree and $\leq$ all keys in $n$'s right subtree.
 ```python
 def InOrderTreeWalk(v):  # Print vertices in order
     InOrderTreeWalk(v.left)
-    print(x.key)
+    print(v.key)
     InOrderTreeWalk(v.right)
 ```
 
@@ -49,9 +49,18 @@ Just start at the root and keep going left until you can't any more
 
 Same as _Min_ but keep going right
 
+### Observation
+
+For a node $x$ in a BST, each of $Predecessor(x)$ and $Successor(x)$ is either an ancestor or a
+descendant of $x$. Indeed, suppose that $m$ is a node which is neither an ancestor nor a descendant
+of $x$ and let $a$ the the lowest common ancestor of $x$ and $m$. Then $x$ and $m$ belong to
+opposite subtrees of $a$. If $x$ is in the left subtree of $a$, then $x < a < m$, meaning that $m$
+is neither the successor nor the predecesor of $x$. If $x$ is in the right subtree of $a$, then
+$m < a < x$, meaning that $m$ is neither the successor nor the predecesor of $x$.
+
 ### Successor
 
-_The *Successor* Procedure:_ If x has a right subtree, then $Successor(x)$ is just $Min(x.right)$.
+_The *Successor* Procedure:_ If $x$ has a right subtree, then $Successor(x)$ is just $Min(x.right)$.
 If $x$ has no right subtree, then to find $Successor(x)$, go up the tree in a northwesterly
 direction for as far as possible; when you can no longer move in a northwesterly direction (e.g.
 because your current node is the left child of its parent), return the current node's parent.

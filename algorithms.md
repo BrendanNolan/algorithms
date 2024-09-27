@@ -411,6 +411,18 @@ Complexity: $O(V+E)$
 A DFS run produces a depth-first forest (_DFF_) of depth-first trees (_DFT_), which have the obvious
 definitions.
 
+## Edge Classifications
+
+- **Tree Edge:** An edge in the graph which belongs to a tree in the DFF
+- **Forward Edge:** A non-tree edge connecting a vertex to one of its descendants in its depth-first
+  tree
+- **Back Edge:** An edge (obviously non-tree edge) connecting a vertex to one of its predecessors in
+  its DFT
+- **Cross Edge:** Any other edge (can go between vertices in the same DFT, as long as one vertex is
+  not an ancestor of the other, or can go between vertices in different depth-first trees)
+
+## Theorems on Depth-First Search
+
 The _Parenthesis Theorem_ and _White Path Theorem_ are very easy to see if you just think about what
 DFS does. Indeed, formal proofs almost obscure how simple these theorems are.
 
@@ -433,16 +445,6 @@ $c$. We show that a depth-first search of $G$ yields a back edge. Let $v$ be the
 discovered in $c$, and let $(u,v)$ be the preceding edge in $c$. At time $v$ is discovered, the
 vertices of $c$ form a path of white vertices from $v$ to u. By the white-path theorem, vertex $u$
 becomes a descendant of $v$ in the DFF, so that $(u,v)$ is a back edge.
-
-## Edge Classifications
-
-- **Tree Edge:** An edge in the graph which belongs to a tree in the DFF
-- **Forward Edge:** A non-tree edge connecting a vertex to one of its descendants in its depth-first
-  tree
-- **Back Edge:** An edge (obviously non-tree edge) connecting a vertex to one of its predecessors in
-  its DFT
-- **Cross Edge:** Any other edge (can go between vertices in the same DFT, as long as one vertex is
-  not an ancestor of the other, or can go between vertices in different depth-first trees)
 
 **Theorem: (Formulated by me, possibly suspect)** For any collection $S$ of vertices in an
 _undirected_ graph, $S$ is the set of vertices of a DFT if and only if it is the set of vertices of

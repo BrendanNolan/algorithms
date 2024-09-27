@@ -589,7 +589,7 @@ is safe for $A$.
 connected components (i.e. trees) in the forest defined by $A$ is safe for $A$.
 
 **Proof:** Follows immediately from the above theorem and the fact that, for any connected component
-(tree) $T$, the cut $(V, V-T)$ respects $A$.
+(tree) $T$ in the forest defined by $A$, the cut $(V, V-T)$ respects $A$.
 
 ## Kruskal's ALgorithm For Finding Safe Edges
 

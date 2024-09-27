@@ -692,7 +692,7 @@ we have $s \rightarrow ... \rightarrow x \rightarrow q \rightarrow ... \rightarr
 $s = x$ and $q = v$). Now
 
 - $v.d \leq q.d$ because $v.d$ was minimal among vertices in $Q$
-- $q.d = \delta(s,q)$ because
+- $q.d = \delta(s,q)$ by the Convergence Lemma, whose conditions are satisfied because:
   - $x.d$ was equal to $\delta(s, x)$ immediately after $x$ was dequeued (since $v$ is the first
     vertex in the path which fails this property)
   - $x \rightarrow q$ was relaxed during the loop iteration where $x$ was dequeued

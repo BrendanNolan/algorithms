@@ -177,12 +177,14 @@ Suppose we list the nodes of a complete binary tree in an array $A$ in the obvio
 starting at zero for both the array and the tree levels). Let $x$ be the $nth$ element at level $m$.
 Then $x$ has $2^0 + ... + 2^{m-1} = 2^m - 1$ elements above it and n elements to its left, so $x$ is
 at position $2^m + n - 1$ in the array. Now, using this formula to express the positions of $x$'s
-parents and children, we get the following formulae for the positions of the parents and children of
-the $ith$ element of the array:
+parents and children, we get the following formulae:
 
-- `parent(i) == floor(i/2)`
 - `left_child(i) = 2i`
 - `right_child(i) = 2i + 1`
+
+from which it follows easily that
+
+- `parent(i) == floor(i/2)`
 
 ## Max Heaps (Min Heaps Are Obviously Similar)
 

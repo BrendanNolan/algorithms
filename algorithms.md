@@ -199,7 +199,7 @@ Suppose that $A$ is a complete binary tree and the left and right subtrees of th
 heaps. We can turn $A$ into a max heap by applying the _Max_Heapify_ procedure.
 
 **Definition:** _Max_Heapify_ allows the root key to "float down" the tree by swapping the key with
-the key of its smaller child until the key is greater than that of both its children.
+the key of its larger child until the key is greater than that of both its children.
 
 Clearly, _Max_Heapify_ turns the tree back into a heap and runs in $O(log(n))$ time.
 

@@ -344,24 +344,23 @@ We use vertex colours to indicate discovery state:
 
 ```python
 def bfs(graph, source):
-    for v in graph - {source}:
-        vertex.colour = white
-        vertex.dist = infty
-        vertex.prev = None
-    source.colour = grey
+    for v in graph.vertices():
+        v.colour = White
+        v.dist = Infty
+        v.prev = Null
     source.dist = 0
-    source.prev = NIL
-
+    source.colour = Grey
     queue = [source]
     while not queue.empty():
         v = queue.pop()
-        for nbr in v.neighbours():
-            if nbr.colour == white:
-                nbr.colour = grey
-                nbr.dist = v.dist + 1
-                nbr.prev = v
-                queue.push(nbr)
-        v.colour = black
+        for n in v.neighbours():
+            if n.colour != White:
+                continue
+            n.prev = v
+            n.dist = v.dist + 1
+            n.colour = Grey
+            queue.push(n)
+        v.colour = Black
 ```
 
 **Theorem:** _BFS_ finds all reachable vertices and assigns them $.distance$ values which are equal
@@ -392,25 +391,27 @@ before $b$. Then, when $b$ is enqueued, we have $a.distance \leq b.distance$.
 Let $G$ be a directed or undierected graph.
 
 ```python
-def DFS(G):
-    for each vertex v:
-        v.colour = WHITE
-        v.prev = NIL
+def DFS(graph):
+    for v in graph.vertices():
+        v.colour = White
+        v.prev = Null
     time = 0
-    for each vertex v:
-        if v.colour == WHITE
-            DFS-VISIT(G, v, time)
+    for v in graph.vertices():
+        if v.colour == White:
+            DFS_Visit(graph, v, time)
 
-
-def DFS-VISIT(G, v, time):
+# Note that time gets passed by value in real python but since this is pseudocode, we can treat
+# it like it gets passed by reference
+def DFS_Visit(graph, v, time):
     ++time
     v.discovered = time
-    v.color = GREY
-    for each out-nbr n of v:
-        if n.color == WHITE:
-            n.prev = v
-            DFS-VISIT(G, n, time)
-    v.color = black
+    v.colour = Grey
+    for n in v.nbrs():
+        if n.colour != White:
+            continue
+        n.prev = v
+        DFS_Visit(graph, n, time)
+    v.colour = Black
     ++time
     v.finished = time
 ```

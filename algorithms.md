@@ -205,7 +205,7 @@ Clearly, _Max_Heapify_ turns the tree back into a heap and runs in $O(log(n))$ t
 
 ### Build_Max_Heap
 
-Suppose that A is a complete binary tree (i.e. just an array) and we want to turn it into a max
+Suppose that A is a complete binary tree (represented as an array) and we want to turn it into a max
 heap.
 
 **Definition:** _Build_Max_Heap_ starts at the right-hand side of the second-last row of the tree

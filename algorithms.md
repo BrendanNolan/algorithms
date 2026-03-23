@@ -217,13 +217,21 @@ _Build_Max_Heap_ runs in $O(n)$ time.
 
 ### Heap Sort
 
-To sort an array $A = a_0, ... , a_n$:
+To sort an array in place using the `Heap Sort` algorithm, do the following:
 
-- Run _Build_Max_Heap_
-- Move the tree root element to the end of the array. Consider the root as being removed from the
-  heap, so that $a_0, ..., a_{n-1}$ represent the heap.
-- Move $a_{n-1}$ to the root position in the heap and call _Max_Heapify_
-- Continue doing this until the heap is emptied
+```python
+def heap_sort(A):
+    Build_Max_Heap(A)
+    n = A.len()
+    # Note that A = A[0 ... n)
+    while n > 0:
+        swap(A[0], A[n - 1])
+        sub_array = A[0 ... n - 1)
+        # Note that sub_array is now a max heap except for A[0]
+        Max_Heapify(sub_array)
+        n = n - 1
+    # A = A[0 ... A.len()) is now sorted
+```
 
 This means one call to _Build_Max_Heap_ and $n$ calls to _Max_Heapify_, which means $O(n + nlog(n))$
 i.e. $O(nlog(n))$.
@@ -244,6 +252,7 @@ Easy - just return the key of the root. $O(1)$.
 
 - Set $m$ equal to the key at the root
 - Swap the keys of the root and the last node
+- Pop the last element off the array
 - Run _Max_Heapify_ on the new root node
 - Return $m$
 
@@ -294,7 +303,7 @@ as the two subarrays are sorted, then the whole array is sorted.
 
 ### Space
 
-Sorts in place, so has space complexity $O(1)$.
+Depends on recursion depth, $O(log(n))$ in the average case, $O(n)$ in the worst case.
 
 ### Time
 
